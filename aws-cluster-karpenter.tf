@@ -58,5 +58,5 @@ resource "aws_iam_role_policy_attachment" "eks_karpenter" {
 resource "aws_iam_instance_profile" "eks_karpenter" {
   count = var.create_karpenter ? 1 : 0
   name  = "${local.prefix}eks-karpenter-${var.eks_cluster_name}"
-  role  = split("/", var.karpenter_worker_node_role_arn)[1]
+  role  = var.karpenter_worker_node_role_arn == "" ? split("/", aws_iam_role.eks-worker[0].arn)[1] : split("/", var.karpenter_worker_node_role_arn)[1]
 }
