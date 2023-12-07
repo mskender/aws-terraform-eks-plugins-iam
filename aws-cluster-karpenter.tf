@@ -28,7 +28,7 @@ resource "aws_iam_policy" "eks_karpenter" {
     account_id       = data.aws_caller_identity.current.account_id,
     aws_region       = data.aws_region.current.name,
     cluster_name     = var.eks_cluster_name,
-    worker_node_role = var.karpenter_worker_node_role_arn == "" ? aws_iam_role.eks-worker.arn : var.karpenter_worker_node_role_arn
+    worker_node_role = var.karpenter_worker_node_role_arn == "" ? aws_iam_role.eks-worker[0].arn : var.karpenter_worker_node_role_arn
   })
 }
 
