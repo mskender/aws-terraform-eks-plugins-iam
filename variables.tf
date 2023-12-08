@@ -77,7 +77,7 @@ variable "create_karpenter" {
 variable "karpenter_namespace" {
   description = "Namespace for Karpenter."
   type        = string
-  default     = "kube-system"
+  default     = "karpenter"
 }
 
 variable "karpenter_sa" {
