@@ -1,26 +1,4 @@
 
-resource "aws_iam_role" "eks-worker" {
-
-  count = var.karpenter_worker_node_role_arn == "" ? 1 : 0
-  name  = local.eks_worker_iam_role_name
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      },
-    ]
-  })
-  #permissions_boundary  = var.permissions_boundary
-  force_detach_policies = true
-
-}
-
 resource "aws_iam_policy" "eks_karpenter" {
   count = var.create_karpenter ? 1 : 0
   name  = "${local.prefix}eks-karpenter-${var.eks_cluster_name}"
