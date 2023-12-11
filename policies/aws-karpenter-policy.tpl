@@ -2,6 +2,10 @@
     "Statement": [
         {
             "Action": [
+                "iam:GetInstanceProfile",
+				"iam:CreateInstanceProfile",
+				"iam:TagInstanceProfile",
+                "iam:AddRoleToInstanceProfile",
                 "ssm:GetParameter",
                 "ec2:DescribeImages",
                 "ec2:RunInstances",
