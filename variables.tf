@@ -56,6 +56,31 @@ variable "create_eks_ebs_csi_driver" {
   default     = true
 }
 
+variable "create_external_dns" {
+  description = "Whether to create External DNS IAM role."
+  type        = bool
+  default     = true
+}
+
+variable "external_dns_zone_list" {
+  description = "Zones to allow External Secrets plugin to manage. Defaults to '*'"
+  type        = list(string)
+  default     = ["*"]
+
+}
+
+variable "external_dns_namespace" {
+  description = "Default namespace for External DNS plugin. Defaults to external-dns."
+  type        = string
+  default     = "external-dns"
+}
+
+variable "external_dns_sa" {
+  description = "Default SA of External DNS plugin. Defaults to external-dns."
+  type        = string
+  default     = "external-dns"
+}
+
 variable "eks_ebs_csi_driver_namespace" {
   description = "Namespace for AWS LB Controller."
   type        = string
