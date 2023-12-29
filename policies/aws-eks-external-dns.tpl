@@ -8,7 +8,7 @@
       ],
       "Resource": [
         %{for zone in zone_list}
-            "arn:aws:route53:::hostedzone/${zone}",
+            "arn:aws:route53:::hostedzone/${zone}"
         %{endfor}
       ]
     },
@@ -18,11 +18,7 @@
         "route53:ListHostedZones",
         "route53:ListResourceRecordSets"
       ],
-      "Resource":  [
-        %{for zone in zone_list}
-            "arn:aws:route53:::hostedzone/${zone}",
-        %{endfor}
-      ]
+      "Resource":  ["*"]
     }
   ]
 }
