@@ -11,7 +11,7 @@
             ],
             "Condition": {
                 "StringEquals": {
-                    "${oidc_url}:sub":"system:serviceaccount:${lbctrl_namespace}:${lbctrl_sa}"
+                    "${oidc_url}:sub":"system:serviceaccount:${namespace}:${sa}"
                 }
             }
         }

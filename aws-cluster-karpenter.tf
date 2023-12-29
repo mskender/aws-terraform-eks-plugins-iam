@@ -20,8 +20,8 @@ resource "aws_iam_role" "eks_karpenter" {
       oidc_arn = var.oidc_provider_arn,
       oidc_url = replace(var.
       eks_oidc_url, "https://", ""),
-      lbctrl_namespace = var.karpenter_namespace,
-      lbctrl_sa        = var.karpenter_sa
+      namespace = var.karpenter_namespace,
+      sa        = var.karpenter_sa
     }
   )
 }
