@@ -2,6 +2,12 @@
     "Statement": [
         {
             "Action": [
+                "iam:GetInstanceProfile",
+				"iam:CreateInstanceProfile",
+				"iam:TagInstanceProfile",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
                 "ssm:GetParameter",
                 "ec2:DescribeImages",
                 "ec2:RunInstances",
@@ -17,6 +23,7 @@
                 "ec2:CreateLaunchTemplate",
                 "ec2:CreateFleet",
                 "ec2:DescribeSpotPriceHistory",
+                "ec2:TerminateInstances",
                 "pricing:GetProducts"
             ],
             "Effect": "Allow",
