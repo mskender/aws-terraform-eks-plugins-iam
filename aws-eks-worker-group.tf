@@ -41,6 +41,13 @@ resource "aws_iam_role_policy_attachment" "worker-AmazonEC2ContainerRegistryRead
   role       = aws_iam_role.eks-worker[0].name
 }
 
+resource "aws_iam_role_policy_attachment" "worker-AmazonEBSCSIDriverPolicy" {
+
+  count      = (var.karpenter_worker_node_role_arn == "" && var.create_eks_ebs_csi_driver) ? 1 : 0
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+  role       = aws_iam_role.eks-worker[0].name
+}
+
 resource "aws_iam_instance_profile" "eks-worker" {
 
   count = var.karpenter_worker_node_role_arn == "" ? 1 : 0
